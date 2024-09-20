@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:39663/odata/v4/school
+@baseUrl = http://localhost:4004/myService
 
 ### GET All Subjects
 GET {{baseUrl}}/subject
@@ -28,10 +28,22 @@ POST {{baseUrl}}/postSubject
 Content-Type: application/json
 
 {
-    "ID": "1",
+    "ID": "2",
+    "name": "Mathematics",
+    "description": "Mathematics Book",
+    "classLevel": "8",
+    "subjectTeacher_ID": "1"
+}
+
+###
+PUT {{baseUrl}}/subject(1)
+Content-Type: application/json
+
+{
     "name": "Sociology",
     "description": "XYZ Book",
-    "classLevel": "8"
+    "classLevel": "8",
+    "subjectTeacher_ID": "2"
 }
 
 
