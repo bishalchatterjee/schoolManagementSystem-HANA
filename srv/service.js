@@ -42,7 +42,47 @@ module.exports = cds.service.impl(async (srv) => {
         } catch (error) {
             return { error: error.message };
         }
-    });    
+    });
+    
+    //POST Multiple Subjects
+    srv.on('postManySubject', async (req, res) => {
+        // return(req.data);
+
+        try {
+            const subjects = req.data.values;
+            const result = await INSERT.into(Subject).entries(subjects);
+            return result;
+        } catch (error) {
+            return { error: error.message };
+        }
+        
+        // try {
+        //     const subjects = req.data.values;
+        //     console.log(subjects);
+
+        //     for (const subject of subjects) {
+        //         const { ID, name, description, classLevel } = subject;
+    
+        //         const existingSubject = await SELECT.one.from(Subject).where({ ID }).or({ name });
+    
+        //         if (existingSubject) {
+        //             return { error: `A subject with the same ID (${ID}) or name (${name}) already exists.` };
+        //         } else {
+        //             const result = await INSERT.into(Subject).entries({
+        //                 ID,
+        //                 name,
+        //                 description,
+        //                 classLevel
+        //             });
+        //             console.log(result);
+        //         }
+        //     }
+        //     return { message: 'All subjects inserted successfully.' };
+        // } catch (error) {
+        //     return { error: error.message };
+        // }
+    });
+    
 
     srv.on('getStaff', async (req) => {
         try {

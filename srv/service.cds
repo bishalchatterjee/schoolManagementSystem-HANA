@@ -12,7 +12,8 @@ service SchoolService @(path: '/myService'){
     //Function for GET operations on entities
     function getSubject(ID: Integer, subName: String) returns subject;
     function getStaff(role: StaffRole, subjectsTaught_ID: Integer) returns staff;
-    //ActionW for PUT,POST operations on entities
+    //Action for PUT,POST operations on entities
     action postSubject(ID: Integer, name: String, description: String, classLevel: ClassLevel) returns subject;
+    action postManySubject(values : array of  subject) returns subject;
 
 } 

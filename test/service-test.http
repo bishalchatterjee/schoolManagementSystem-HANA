@@ -24,15 +24,22 @@ GET {{baseUrl}}/getSubject(ID='',subName='Maths')
 # POST {{baseUrl}}/postSubject(ID='5',name='Biology',description='Biology Book',classLevel='8')
 
 ###
-POST {{baseUrl}}/postSubject
+POST {{baseUrl}}/postManySubject
 Content-Type: application/json
 
 {
-    "ID": "2",
-    "name": "Mathematics",
-    "description": "Mathematics Book",
-    "classLevel": "8",
-    "subjectTeacher_ID": "1"
+"values": 
+   [{
+        "ID": "12",
+        "name": "Finology",
+        "description": "Finology Book",
+        "classLevel": "7"
+    },{
+        "ID": "13",
+        "name": "Advance Java",
+        "description": "Advance Java Book",
+        "classLevel": "8"
+    }] 
 }
 
 ###
@@ -40,11 +47,39 @@ PUT {{baseUrl}}/subject(1)
 Content-Type: application/json
 
 {
-    "name": "Sociology",
-    "description": "XYZ Book",
-    "classLevel": "8",
-    "subjectTeacher_ID": "2"
+      "classLevel": 8,
+      "description": "Sociology Book",
+      "name": "Sociology",
+      "subjectTeacher_ID": 2
 }
+###
+PUT {{baseUrl}}/subject(4)
+Content-Type: application/json
+
+{
+      "classLevel": 8,
+      "description": "History Book",
+      "name": "History",
+      "subjectTeacher_ID": 2
+}
+###
+# PUT {{baseUrl}}/student(1)
+# Content-Type: application/json
+
+# {
+#   "address_country": "India",
+#   "address_firstLine": "17 RC Road",
+#   "address_secondLine": "Near Park Street Kolkata",
+#   "address_state": "West Bengal",
+#   "address_zipCode": "742003",
+#   "category": 1,
+#   "class_ID": 10,
+#   "dob": 2002-05-15,
+#   "email": "bishalc430@gmail.com",
+#   "firstName": "Bishal",
+#   "lastName": "Chatterjee",
+#   "phoneNumber": "8016694882"
+# }
 
 
 
