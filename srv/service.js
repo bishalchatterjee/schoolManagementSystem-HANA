@@ -1,5 +1,5 @@
 const cds = require('@sap/cds');
-const {Student, Subject, GradeScale, Result, Staff, Timetable, Class} = cds.entities;
+const {Student, Subject, GradeScale, Result, Staff, Timetable, Class, AdminLogonValidation, StaffLogonValidation} = cds.entities;
 
 module.exports = cds.service.impl(async (srv) => {
     //Dynamic GET using actions
@@ -97,6 +97,44 @@ module.exports = cds.service.impl(async (srv) => {
             }    
         } catch (error) {
             return { error: error.message };
+        }
+    });
+
+    srv.on('verifyAdminLogon', async (req) => {
+        try {
+            const { email, password } = req.data;
+
+            const adminExists = await SELECT.one.from(AdminLogonValidation).where({ email }).and({ password });
+
+            console.log(adminExists);
+
+            if (adminExists) {
+                // console.log(true);
+                // return adminExists;
+                return true;
+            }else {
+                return false;
+            }
+        } catch (error) {
+            return { error:'Authentication failed!' };
+        }
+    });
+
+    srv.on('verifyStaffLogon', async (req) => {
+        try {
+            const { email, password } = req.data;
+
+            const staffExists = await SELECT.one.from(StaffLogonValidation).where({ email }).and({ password });
+
+            if (staffExists) {
+                // console.log(true);
+                // return staffExists;
+                return true;
+            }else {
+                return false;
+            }
+        } catch (error) {
+            return { error: 'Authentication failed!'};
         }
     });
  });

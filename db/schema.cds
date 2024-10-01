@@ -116,3 +116,15 @@ entity GradeScale {
     minimumMarks     : Integer;
     maximumMarks     : Integer;
 }
+
+entity AdminLogonValidation {
+    Key ID          : Integer;
+        email       : String;
+        password    : String;
+}
+
+entity StaffLogonValidation {
+    Key ID          : Integer;
+        email       : String;
+        password    : String;
+}

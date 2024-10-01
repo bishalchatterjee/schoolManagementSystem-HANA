@@ -12,15 +12,38 @@ GET {{baseUrl}}/staff
 ### GET All Staff
 GET {{baseUrl}}/getStaff(role='3',subjectsTaught_ID='2')
 
+### GET All Admin
+GET {{baseUrl}}/adminLogon
+
+
+### 
+POST {{baseUrl}}/staffLogon
+Content-Type: application/json
+
+{
+    "ID"        : "1",
+    "email"     : "ankit@merckgroup.com",
+    "password"  : "123456" 
+}
 ###------------------------###
 
 ### GET Subjects by specific ID
 GET {{baseUrl}}/subject(5)
 
 ### Dynamic Subquery
-GET {{baseUrl}}/getSubject(ID='',subName='Maths')
+GET {{baseUrl}}/getSubject(ID='',subName='Sociology')
 
-# ###
+### Dynamic Subquery
+GET {{baseUrl}}/verifyStaffLogon
+Content-Type: application/json
+
+{
+
+    "email": "ankit@merckgroup.com",
+    "password": "123456"
+}
+
+###
 # POST {{baseUrl}}/postSubject(ID='5',name='Biology',description='Biology Book',classLevel='8')
 
 ###
