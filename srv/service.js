@@ -5,7 +5,7 @@ module.exports = cds.service.impl(async (srv) => {
     //Dynamic GET using actions
     srv.on('getSubject', async (req) => {
         var subQuery = null;
-        if (req.data.ID) {
+        if (req.data.ID) {``
             subQuery = `ID=${req.data.ID}`;
         } else {
             subQuery = `name='${req.data.subName}'`;

@@ -62,24 +62,3 @@ Content-Type: application/json
       "name": "History",
       "subjectTeacher_ID": 2
 }
-###
-# PUT {{baseUrl}}/student(1)
-# Content-Type: application/json
-
-# {
-#   "address_country": "India",
-#   "address_firstLine": "17 RC Road",
-#   "address_secondLine": "Near Park Street Kolkata",
-#   "address_state": "West Bengal",
-#   "address_zipCode": "742003",
-#   "category": 1,
-#   "class_ID": 10,
-#   "dob": 2002-05-15,
-#   "email": "bishalc430@gmail.com",
-#   "firstName": "Bishal",
-#   "lastName": "Chatterjee",
-#   "phoneNumber": "8016694882"
-# }
-
-
-
