@@ -55,18 +55,17 @@ entity Class {
     key ID              : Integer;
     name                : String(5);
     classLevel          : ClassLevel;
-    classTeacher        : Association to Staff;  // Teachers will have role = 3 in custom logic
+    classTeacher        : Association to Staff; 
     students            : Association to many Student on students.class = $self;
     subjects            : Association to many Subject;
     timetable           : Composition of many Timetable on timetable.class = $self;
 }
-
 entity Timetable {
     key ID           : Integer;
     dayOfWeek        : String(10);
     period           : Integer;
     subject          : Association to Subject;
-    teacher          : Association to Staff;  // Teachers will have role = 3 in custom logic
+    teacher          : Association to Staff;  
     class            : Association to Class;
     startTime        : Time;
     endTime          : Time;

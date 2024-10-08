@@ -17,9 +17,13 @@ service SchoolService @(path: '/myService'){
 
     function getSubject(ID: Integer, subName: String) returns subject;
     function getStaff(role: StaffRole, subjectsTaught_ID: Integer) returns staff;
+
+    function getAnalytics() returns Integer;
    
     //Action for PUT,POST operations on entities
     action postSubject(ID: Integer, name: String, description: String, classLevel: ClassLevel) returns subject;
     action postManySubject(values : array of  subject) returns subject;
+
+
 
 } 

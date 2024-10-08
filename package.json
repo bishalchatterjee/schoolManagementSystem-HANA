@@ -9,7 +9,8 @@
     "@cap-js/hana": "^1",
     "@sap/cds": "^8",
     "@sap/xssec": "^4.2.4",
-    "express": "^4"
+    "express": "^4",
+    "passport": "^0.7.0"
   },
   "devDependencies": {
     "@cap-js/cds-types": "^0.6",

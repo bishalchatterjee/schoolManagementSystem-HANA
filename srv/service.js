@@ -137,4 +137,29 @@ module.exports = cds.service.impl(async (srv) => {
             return { error: 'Authentication failed!'};
         }
     });
+
+
+    srv.on('getAnalytics', async (req) => {
+        try {
+            let query = `
+                SELECT 
+                    (SELECT COUNT(*) FROM students) AS student_count,
+                    (SELECT COUNT(*) FROM subjects) AS subject_count
+            `;
+    
+            let result = await new Promise((resolve, reject) => {
+                conn.exec(query, (err, rows) => {
+                    if (err) {
+                        return reject(err);
+                    }
+                    resolve(rows);
+                });
+            });
+    
+            return result;
+    
+        } catch (error) {
+            return { error: 'Something went wrong!'};
+        }
+    });
  });
